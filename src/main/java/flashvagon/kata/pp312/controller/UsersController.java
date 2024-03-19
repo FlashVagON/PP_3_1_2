@@ -1,12 +1,13 @@
 package flashvagon.kata.pp312.controller;
 
 import flashvagon.kata.pp312.model.User;
-import flashvagon.kata.pp312.model.UserService;
+import flashvagon.kata.pp312.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/")
 public class UsersController {
 
     private final UserService userService;
@@ -15,14 +16,14 @@ public class UsersController {
         this.userService = userService;
     }
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String userList(ModelMap model) {
         model.addAttribute("userList", userService.listUsers());
-        return "users/index";
+        return "index";
     }
     @GetMapping(value = "/new")
     public String newUser(@ModelAttribute("user") User user) {
-        return "users/new";
+        return "new";
     }
 
     @GetMapping("/users")

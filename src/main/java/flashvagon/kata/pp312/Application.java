@@ -1,17 +1,14 @@
 package flashvagon.kata.pp312;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @SpringBootApplication
-@Configuration
-public class Main {
+public class Application {
 
 	public static void main(String[] args)	 {
-		SpringApplication.run(Main.class, args);
+		SpringApplication.run(Application.class, args);
 
 
 	}
