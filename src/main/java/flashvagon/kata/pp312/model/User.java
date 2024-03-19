@@ -1,6 +1,7 @@
 package flashvagon.kata.pp312.model;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "USERS")

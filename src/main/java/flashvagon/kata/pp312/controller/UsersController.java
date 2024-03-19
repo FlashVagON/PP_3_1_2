@@ -1,9 +1,8 @@
 package flashvagon.kata.pp312.controller;
 
 import flashvagon.kata.pp312.model.User;
-import flashvagon.kata.pp312.service.UserService;
+import flashvagon.kata.pp312.model.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
