@@ -3,10 +3,11 @@ package flashvagon.kata.pp312.controller;
 import flashvagon.kata.pp312.model.User;
 import flashvagon.kata.pp312.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping("/")
 public class UsersController {
 
@@ -29,22 +30,22 @@ public class UsersController {
     @GetMapping("/users")
     public String editUser(ModelMap model, @RequestParam("id") int id) {
         model.addAttribute("user", userService.showUser(id));
-        return "users/edit";
+        return "edit";
     }
 
-    @PatchMapping("/users")
+    @PostMapping("/users")
     public String updateUser(@ModelAttribute("user") User user){
         userService.updateUser(user);
         return "redirect:/";
     }
 
-    @PostMapping()
+    @PostMapping("/new")
     public String createUser(@ModelAttribute("user") User user) {
         userService.addUser(user);
         return "redirect:/";
     }
 
-    @DeleteMapping("/users")
+    @PostMapping("/users/delete")
     public String deleteUser(@RequestParam("id") int id) {
         userService.deleteUser(id);
         return "redirect:/";

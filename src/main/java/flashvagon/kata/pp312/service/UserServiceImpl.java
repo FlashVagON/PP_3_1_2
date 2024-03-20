@@ -15,31 +15,30 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private static UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Override
     @Transactional
     public void addUser(User user) {
-        //userRepository.addUser(user);
+        userRepository.save(user);
     }
 
     @Override
     @Transactional
     public void updateUser(User user) {
-        //userRepository.updateUser(user);
+        userRepository.save(user);
     }
 
     @Override
     @Transactional(readOnly = true)
     public User showUser(int id) {
-        //return userRepository.showUser(id);
-        return null;
+        return userRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
     @Override
     @Transactional
     public void deleteUser(int id) {
-        //userRepository.deleteUser(id);
+        userRepository.deleteById(id);
     }
     @Override
     @Transactional(readOnly = true)
